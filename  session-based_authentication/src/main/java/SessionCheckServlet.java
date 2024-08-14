@@ -5,23 +5,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet("/welcome")
-public class WelcomeServlet extends HttpServlet {
+@WebServlet("/sessionCheck")
+public class SessionCheckServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
         if (session != null && session.getAttribute("username") != null) {
             String username = (String) session.getAttribute("username");
-            out.println("<h1>Welcome, " + username + "!</h1>");
-            out.println("<a href='logout'>Logout</a>");
+            response.getWriter().write("username=" + username);
         } else {
-            response.sendRedirect("login.html");
+            response.getWriter().write("invalid");
         }
     }
 }

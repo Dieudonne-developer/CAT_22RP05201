@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private static final String VALID_USERNAME = "ZAIDI";
+    private static final String VALID_USERNAME = "GROUP1";
     private static final String VALID_PASSWORD = "123";
 
     @Override

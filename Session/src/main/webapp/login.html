@@ -1,9 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Username or Email</title>
+    <title>Login</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get cookies and pre-fill fields if available
+            const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+                const [name, value] = cookie.split('=').map(c => c.trim());
+                acc[name] = decodeURIComponent(value);
+                return acc;
+            }, {});
+
+            if (cookies['username']) {
+                document.getElementById('username').value = cookies['username'];
+            }
+            if (cookies['password']) {
+                document.getElementById('password').value = cookies['password'];
+            }
+        });
     </script>
     <style>
         body {
@@ -58,19 +72,22 @@
         }
     </style>
 </head>
-<body bgcolour="blue">
-<center>
+<body>
 <div class="container">
-    <h2>Enter your Username or Email</h2>
-    <form action="saveUser" method="get">
-        <label for="userInput">Username or Email:</label>
-        <input type="text" id="userInput" name="userInput" 
-               value="${cookie.userInfo != null ? cookie.userInfo.value : ''}"><br><br>
-               <center>
-        <input type="submit" value="Submit">
-        </center>
+    <h1>Login</h1>
+    <form action="login" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="">
+        <br>
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe">Remember Me</label>
+        <br>
+        <button type="submit">Login</button>
     </form>
-    </center>
     </div>
 </body>
+
 </html>

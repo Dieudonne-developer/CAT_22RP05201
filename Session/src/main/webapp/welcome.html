@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <script>
+        function checkSession() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "sessionCheck", true); // Endpoint to check session
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = xhr.responseText;
+                    if (response.startsWith("username=")) {
+                        var username = response.substring("username=".length);
+                        document.getElementById("welcomeMessage").innerHTML = "Welcome, " + username + "!";
+                    } else {
+                        window.location.href = "login.html";
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        function logout() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "logout", true); // Endpoint to log out
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    window.location.href = "login.html";
+                }
+            };
+            xhr.send();
+        }
+
+        window.onload = function () {
+            checkSession();
+        }
+    </script>
+    <style type="text/css">
+    div{width: 30%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer; }
+    </style>
+</head>
+<body>
+<div id="di"></div>
+    <h2 id="welcomeMessage">Loading...</h2>
+    <button onclick="logout()">Logout</button>
+</body>
+</html>

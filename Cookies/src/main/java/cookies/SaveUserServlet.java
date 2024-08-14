@@ -19,6 +19,6 @@ public class SaveUserServlet extends HttpServlet {
         response.addCookie(N_22rp05201 );
         
         // Redirect back to the index.jsp page
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("cookies.html");
     }
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Error</title>
+    <script type="text/javascript">
+    function logout() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "logout", true); // Endpoint to log out
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                window.location.href = "login.html";
+            }
+        };
+        xhr.send();
+    }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .notification {
+            color: #007bff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 1.5em;
+            margin: 0;
+        }
+        p {
+            color: #666;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="notification">Notification</div>
+        <h1>Login Error</h1>
+        <p id="error-message"></p>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script>
+        // Get the message parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            // Display the message
+            document.getElementById('error-message').textContent = decodeURIComponent(message);
+        }
+    </script>
+</body>
+</html>

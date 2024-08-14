@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
+    <title>Login Error</title>
 </head>
 <body>
-    <h2>Login Failed</h2>
-    <p>Invalid username or password. Please try again.</p>
-    <a href="login.html">Back to Login</a>
+    <h1>Login Error</h1>
+    <p id="error-message"></p>
+    <script>
+        // Get the message parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            // Display the message
+            document.getElementById('error-message').textContent = decodeURIComponent(message);
+        }
+    </script>
 </body>
 </html>
