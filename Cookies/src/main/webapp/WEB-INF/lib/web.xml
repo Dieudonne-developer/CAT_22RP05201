@@ -19,4 +19,14 @@
   <servlet-name>SaveUserServlet</servlet-name>
   <url-pattern>/SaveUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+  <description></description>
+  <display-name>HelloWorldServlet</display-name>
+  <servlet-name>HelloWorldServlet</servlet-name>
+  <servlet-class>cookies.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>HelloWorldServlet</servlet-name>
+  <url-pattern>/HelloWorldServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

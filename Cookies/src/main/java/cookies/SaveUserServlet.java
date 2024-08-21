@@ -14,9 +14,9 @@ public class SaveUserServlet extends HttpServlet {
         String userInput = request.getParameter("userInput");
         
         // Create a cookie to store the username or email
-        Cookie N_22rp05201 = new Cookie("userInfo", userInput);
-        N_22rp05201 .setMaxAge(60*60*24*7); // Set cookie to expire in one week
-        response.addCookie(N_22rp05201 );
+        Cookie e = new Cookie("user", userInput);
+        e .setMaxAge(60*60*24*7); // Set cookie to expire in one week
+        response.addCookie(e);
         
         // Redirect back to the index.jsp page
         response.sendRedirect("cookies.html");

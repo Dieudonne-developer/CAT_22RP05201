@@ -36,19 +36,66 @@
         }
     </script>
     <style type="text/css">
-    div{width: 30%;
-            padding: 10px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #di {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             background-color: #28a745;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        #di button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        #di button:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #logoutButton {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #dc3545;
             border: none;
             color: #fff;
             border-radius: 4px;
             font-size: 16px;
-            cursor: pointer; }
+            cursor: pointer;
+        }
+
+        #logoutButton:hover {
+            background-color: #c82333;
+        }
     </style>
 </head>
 <body>
-<div id="di"></div>
+    <div id="di">
+        <button>User Information</button>
+        <button>Policy</button>
+        <button>Setting</button>
+    </div>
     <h2 id="welcomeMessage">Loading...</h2>
-    <button onclick="logout()">Logout</button>
+    <button onclick="logout()" id="logoutButton">Logout</button>
 </body>
 </html>

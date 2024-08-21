@@ -65,7 +65,7 @@
     <form action="saveUser" method="get">
         <label for="userInput">Username or Email:</label>
         <input type="text" id="userInput" name="userInput" 
-               value="${cookie.userInfo != null ? cookie.userInfo.value : ''}"><br><br>
+               value="${cookie.user != null ? cookie.user.value : ''}"><br><br>
                <center>
         <input type="submit" value="Submit">
         </center>
